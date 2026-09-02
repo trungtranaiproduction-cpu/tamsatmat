@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tầm Soát Sức Khỏe Học Đường - Mắt Sáng Dáng Thẳng</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clinical: {
+                            50: '#f0fbfb',
+                            100: '#d9f5f5',
+                            500: '#0d9488',
+                            600: '#0f766e',
+                            700: '#115e59',
+                            800: '#134e4a',
+                            900: '#0f3d3a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .step-transition {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col justify-between text-slate-800">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-100 py-4 shadow-sm">
+        <div class="max-w-md mx-auto px-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="bg-clinical-500 text-white p-2 rounded-lg font-bold text-lg shadow-md shadow-clinical-500/20">VH</div>
+                <div>
+                    <h1 class="text-xs font-bold uppercase tracking-wider text-clinical-600">Hệ Thống Kính Mắt</h1>
+                    <p class="text-sm font-extrabold text-slate-900 tracking-tight">Thanh Hoa - Vinh Hằng</p>
+                </div>
+            </div>
+            <span class="bg-clinical-50 text-clinical-600 text-xs font-semibold px-2.5 py-1 rounded-full border border-clinical-100">Chuẩn Y Khoa</span>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md rounded-2xl shadow-xl shadow-slate-100 border border-slate-100 overflow-hidden">
+            
+            <!-- Banner / Hero Area for Welcome Screen -->
+            <div id="welcome-banner" class="bg-clinical-700 p-6 text-white relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-clinical-600 rounded-full opacity-50 blur-xl"></div>
+                <div class="relative z-10">
+                    <span class="bg-clinical-500/30 text-clinical-100 text-xs font-bold uppercase px-2 py-1 rounded">Khảo sát 2 phút</span>
+                    <h2 class="text-xl font-extrabold mt-3 leading-tight">TẦM SOÁT NGUY CƠ CẬN THỊ & VẸO CỘT SỐNG CHO TRẺ</h2>
+                    <p class="text-xs text-clinical-100 mt-2 font-medium">Đồng hành cùng con vững bước vào năm học mới với "Mắt Sáng - Dáng Thẳng"</p>
+                </div>
+            </div>
+
+            <!-- Quiz Step Progress Bar (Hidden on Welcome/Result Screen) -->
+            <div id="progress-container" class="hidden px-6 pt-6">
+                <div class="flex justify-between text-xs text-slate-400 mb-2 font-semibold">
+                    <span id="step-label">Câu hỏi 1/4</span>
+                    <span id="step-percent">25%</span>
+                </div>
+                <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                    <div id="progress-bar" class="bg-clinical-500 h-full w-1/4 transition-all duration-300"></div>
+                </div>
+            </div>
+
+            <!-- STEP 0: WELCOME SCREEN -->
+            <div id="step-0" class="p-6 step-transition">
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                        <span class="text-2xl mt-0.5">👁️</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">Kiểm soát tăng độ cận</h4>
+                            <p class="text-xs text-slate-500 mt-0.5">Phát hiện sớm dấu hiệu mỏi mệt cơ mi điều tiết mắt của con sau mùa hè dùng nhiều tivi, điện thoại.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                        <span class="text-2xl mt-0.5">📐</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">Phòng chống vẹo cột sống</h4>
+                            <p class="text-xs text-slate-500 mt-0.5">Đo lường nguy cơ cong lệch vai, lưng tôm do tư thế học bài bị cúi gập mặt hay ngồi sai lệch cột sống.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                        <span class="text-2xl mt-0.5">🎁</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">Mã hẹn VIP 0đ & Bộ tài liệu</h4>
+                            <p class="text-xs text-slate-500 mt-0.5">Sau khi hoàn thành, ba mẹ sẽ nhận ngay cuốn Cẩm nang thực hành và Sổ tay 21 ngày thẳng lưng.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input Parent and Child Name -->
+                <div class="mt-6 space-y-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Họ tên Ba Mẹ <span class="text-red-500">*</span></label>
+                        <input type="text" id="parent-name" placeholder="Ví dụ: Nguyễn Văn An" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-clinical-500 focus:border-clinical-500 outline-none text-sm transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Tên & Tuổi của Bé <span class="text-red-500">*</span></label>
+                        <input type="text" id="child-name" placeholder="Ví dụ: Bé Tôm - 8 tuổi" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-clinical-500 focus:border-clinical-500 outline-none text-sm transition-all">
+                    </div>
+                </div>
+
+                <button onclick="startQuiz()" class="w-full bg-clinical-600 hover:bg-clinical-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg shadow-clinical-600/20 transition-all mt-6 text-sm flex items-center justify-center space-x-2">
+                    <span>Bắt Đầu Tầm Soát Ngay</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- STEP 1: DEVICE USAGE -->
+            <div id="step-1" class="hidden p-6 step-transition">
+                <h3 class="text-base font-bold text-slate-900 mb-4 leading-snug">Câu 1: Trung bình mỗi ngày con sử dụng thiết bị điện tử (tivi, điện thoại, ipad, máy tính) trong bao lâu?</h3>
+                <div class="space-y-3">
+                    <label class="option-card flex items-center justify-between p-4 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-all">
+                        <span class="text-sm font-medium">Dưới 1 tiếng mỗi ngày</span>
+                        <input type="radio" name="q1" value="1" class="w-4 h-4 text-clinical-600 focus:ring-clinical-500">
+                    </label>
+                    <label class="option-card flex items-center justify-between p-4 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-all">
+                        <span class="text-sm font-medium">Từ 1 - 3 tiếng mỗi ngày</span>
+                        <input type="radio" name="q1" value="3" class="w-4 h-4 text-clinical-600 focus:ring-clinical-500">
+                    </label>
+                    <label class="option-card flex items-center justify-between p-4 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-all">
+                        <span class="text-sm font-medium">Trên 3 tiếng mỗi ngày (Chơi liên tục)</span>
+                        <input type="radio" name="q1" value="5" class="w-4 h-4 text-clinical-600 focus:ring-clinical-500">
+                    </label>
+                </div>
+                <div class="flex space-x-3 mt-6">
+                    <button onclick="nextStep(2)" class="w-full bg-clinical-600 hover:bg-clinical-700 text-white font-bold py-3 px-4 rounded-xl transition-all text-sm">Tiếp Theo</button>
+                </div>
+            </div>
+
+            <!-- STEP 2: SITTING POSTURE -->
+            <div id="step-2" class="hidden p-6 step-transition">
+                <h3 class="text-base font-bold text-slate-900 mb-4 leading-snug">Câu 2: Tư thế ngồi học thường ngày của con tại nhà như thế nào? (Chọn phương án giống nhất)</h3>
+                <div class="space-y-3">
+                    <label class="option-card flex items-center justify-between p-4 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-all">
+                        <span class="text-sm font-medium">Ngồi thẳng lưng, mắt cách bàn trên 30cm</span>
+                        <input type="radio" name="q2" value="1" class="w-4 h-4 text-clinical-600 focus:ring-clinical-500">
+                    </label>
+                    <label class="option-card flex items-center justify-between p-4 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-all">
+                        <span class="text-sm font-medium">Nằm bò ra bàn học, cúi sát mặt xuống sách vở</span>
+                        <input type="radio" name="q2" value="4" class="w-4 h-4 text-clinical-600 focus:ring-clinical-500">
+                    </label>
+                    <label class="option-card flex items-center justify-between p-4 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-all">
+                        <span class="text-sm font-medium">Ngồi vẹo sang một bên, tì hẳn ngực vào cạnh bàn</span>
+                        <input type="radio" name="q2" value="5" class="w-4 h-4 text-clinical-600 focus:ring-clinical-500">
+                    </label>
+                </div>
+                <div class="flex space-x-3 mt-6">
+                    <button onclick="prevStep(1)" class="w-1/3 bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold py-3 px-4 rounded-xl transition-all text-sm">Quay Lại</button>
+                    <button onclick="nextStep(3)" class="w-2/3 bg-clinical-600 hover:bg-clinical-700 text-white font-bold py-3 px-4 rounded-xl transition-all text-sm">Tiếp Theo</button>
+                </div>
+            </div>
+
+            <!-- STEP 3: EYE SYMPTOMS -->
+            <div id="step-3" class="hidden p-6 step-transition">
+                <h3 class="text-base font-bold text-slate-900 mb-4 leading-snug">Câu 3: Ba mẹ có quan sát thấy con có những biểu hiện mỏi mệt ở mắt sau đây không?</h3>
+                <div class="space-y-3">
+                    <label class="option-card flex items-center justify-between p-4 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-all">
+                        <span class="text-sm font-medium">Con hoàn toàn bình thường, mắt sáng khỏe</span>
+                        <input type="radio" name="q3" value="1" class="w-4 h-4 text-clinical-600 focus:ring-clinical-500">
+                    </label>
+                    <label class="option-card flex items-center justify-between p-4 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-all">
+                        <span class="text-sm font-medium">Hay dụi mắt, chớp mắt liên tục khi xem hình</span>
+                        <input type="radio" name="q3" value="4" class="w-4 h-4 text-clinical-600 focus:ring-clinical-500">
+                    </label>
+                    <label class="option-card flex items-center justify-between p-4 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-all">
+                        <span class="text-sm font-medium">Thường nheo mắt, nghiêng hẳn đầu khi nhìn xa</span>
+                        <input type="radio" name="q3" value="5" class="w-4 h-4 text-clinical-600 focus:ring-clinical-500">
+                    </label>
+                </div>
+                <div class="flex space-x-3 mt-6">
+                    <button onclick="prevStep(2)" class="w-1/3 bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold py-3 px-4 rounded-xl transition-all text-sm">Quay Lại</button>
+                    <button onclick="nextStep(4)" class="w-2/3 bg-clinical-600 hover:bg-clinical-700 text-white font-bold py-3 px-4 rounded-xl transition-all text-sm">Tiếp Theo</button>
+                </div>
+            </div>
+
+            <!-- STEP 4: SPINE / POSTURE -->
+            <div id="step-4" class="hidden p-6 step-transition">
+                <h3 class="text-base font-bold text-slate-900 mb-4 leading-snug">Câu 4: Ba mẹ có phát hiện dấu hiệu mỏi mệt hay vẹo cột sống học đường nào ở con dưới đây?</h3>
+                <div class="space-y-3">
+                    <label class="option-card flex items-center justify-between p-4 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-all">
+                        <span class="text-sm font-medium">Dáng con thẳng thắn, vai gáy thoải mái</span>
+                        <input type="radio" name="q4" value="1" class="w-4 h-4 text-clinical-600 focus:ring-clinical-500">
+                    </label>
+                    <label class="option-card flex items-center justify-between p-4 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-all">
+                        <span class="text-sm font-medium">Lưng khòm, gù xuống (Dáng ngồi lưng tôm)</span>
+                        <input type="radio" name="q4" value="4" class="w-4 h-4 text-clinical-600 focus:ring-clinical-500">
+                    </label>
+                    <label class="option-card flex items-center justify-between p-4 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-all">
+                        <span class="text-sm font-medium">Hai vai không đều nhau, lệch rõ một bên</span>
+                        <input type="radio" name="q4" value="5" class="w-4 h-4 text-clinical-600 focus:ring-clinical-500">
+                    </label>
+                </div>
+                <div class="flex space-x-3 mt-6">
+                    <button onclick="prevStep(3)" class="w-1/3 bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold py-3 px-4 rounded-xl transition-all text-sm">Quay Lại</button>
+                    <button onclick="submitQuiz()" class="w-2/3 bg-clinical-600 hover:bg-clinical-700 text-white font-bold py-3 px-4 rounded-xl transition-all text-sm shadow-md shadow-clinical-600/20">Xem Kết Quả</button>
+                </div>
+            </div>
+
+            <!-- RESULT SCREEN -->
+            <div id="result-screen" class="hidden p-6 step-transition">
+                
+                <!-- Risk Level Visual indicator -->
+                <div class="text-center pb-6 border-b border-slate-100">
+                    <div id="result-badge" class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase mb-3">
+                        Mức Độ Nguy Cơ: Cao
+                    </div>
+                    <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Hồ sơ chẩn đoán của</p>
+                    <h3 id="result-name" class="text-lg font-extrabold text-slate-900 mt-0.5">Bé Tôm</h3>
+                </div>
+
+                <!-- Diagnosis Detail -->
+                <div class="py-5 space-y-4">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h4 class="font-bold text-sm text-slate-900 flex items-center">
+                            <span class="mr-2">📢</span> Phân Tích Chuyên Khoa:
+                        </h4>
+                        <p id="result-text" class="text-xs text-slate-600 mt-2 leading-relaxed">
+                            Mức độ mỏi điều tiết và lệch tư thế ngồi của bé đang ở mức đáng báo động. Nếu không sớm đưa qua đo khám khúc xạ chuyên sâu, bé có nguy cơ cao bị tăng từ 1 - 2 độ cận thị ngay trong học kỳ mới, kèm theo cong vẹo hệ cột sống học đường.
+                        </p>
+                    </div>
+
+                    <!-- Instant Gift Box -->
+                    <div class="border-2 border-dashed border-clinical-500 bg-clinical-50/50 p-4 rounded-xl">
+                        <h4 class="font-bold text-sm text-clinical-700 flex items-center">
+                            <span class="mr-2">🎁</span> Quà Tặng Đã Giữ Thành Công:
+                        </h4>
+                        <ul class="text-xs text-slate-600 space-y-1.5 mt-2 font-medium">
+                            <li class="flex items-center"><span class="text-clinical-600 mr-2">✓</span> Suất tầm soát Khúc Xạ & Dáng Ngồi (0đ)</li>
+                            <li class="flex items-center"><span class="text-clinical-600 mr-2">✓</span> Bản cứng Cẩm nang "Mắt Sáng - Dáng Thẳng"</li>
+                            <li class="flex items-center"><span class="text-clinical-600 mr-2">✓</span> Bản cứng Sổ tay "21 Ngày Thử Thách"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Call To Action (Zalo Me Integration) -->
+                <div class="space-y-3">
+                    <a id="zalo-link" href="#" target="_blank" class="w-full bg-clinical-600 hover:bg-clinical-700 text-white font-bold py-4 px-4 rounded-xl shadow-lg shadow-clinical-600/20 transition-all text-sm flex items-center justify-center space-x-2">
+                        <span class="text-base">💬</span>
+                        <span>Nhắn Zalo Nhận Quà & Kết Quả Chi Tiết</span>
+                    </a>
+                    <button onclick="resetQuiz()" class="w-full text-slate-400 hover:text-slate-600 text-xs font-semibold py-2 transition-all">Làm Lại Trắc Nghiệm</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white py-4 border-t border-slate-100 text-center text-[10px] text-slate-400 font-medium">
+        © 2026 Kính mắt Thanh Hoa - Vinh Hằng. Đã đăng ký bản quyền. <br>
+        Bản quyền thuộc về Solopreneur Enterprise.
+    </footer>
+
+    <!-- Frontend Quiz Logic JavaScript -->
+    <script>
+        let parentName = "";
+        let childName = "";
+        let currentStep = 0;
+        let score = 0;
+
+        // Start Quiz
+        function startQuiz() {
+            const parentInput = document.getElementById('parent-name').value.trim();
+            const childInput = document.getElementById('child-name').value.trim();
+
+            if (!parentInput || !childInput) {
+                alert("Ba mẹ vui lòng điền đầy đủ Họ tên và Tên bé nhé ạ!");
+                return;
+            }
+
+            parentName = parentInput;
+            childName = childInput;
+
+            // Hide Step 0
+            document.getElementById('step-0').classList.add('hidden');
+            document.getElementById('welcome-banner').classList.add('hidden');
+            
+            // Show Progress Bar
+            document.getElementById('progress-container').classList.remove('hidden');
+
+            // Show Step 1
+            showStep(1);
+        }
+
+        // Show specific step
+        function showStep(stepNum) {
+            currentStep = stepNum;
+            
+            // Hide all steps
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById(`step-${i}`).classList.add('hidden');
+            }
+
+            // Show target step
+            document.getElementById(`step-${stepNum}`).classList.remove('hidden');
+
+            // Update Progress Bar
+            const percent = (stepNum / 4) * 100;
+            document.getElementById('step-label').innerText = `Câu hỏi ${stepNum}/4`;
+            document.getElementById('step-percent').innerText = `${percent}%`;
+            document.getElementById('progress-bar').style.width = `${percent}%`;
+        }
+
+        // Next Step handler
+        function nextStep(nextNum) {
+            // Validate that option is selected
+            const checkedOption = document.querySelector(`input[name="q${nextNum - 1}"]:checked`);
+            if (!checkedOption) {
+                alert("Ba mẹ vui lòng lựa chọn 1 đáp án giống nhất với bé ạ!");
+                return;
+            }
+            showStep(nextNum);
+        }
+
+        // Previous Step handler
+        function prevStep(prevNum) {
+            showStep(prevNum);
+        }
+
+        // Submit Quiz & Calculate Score
+        function submitQuiz() {
+            const checkedOption = document.querySelector('input[name="q4"]:checked');
+            if (!checkedOption) {
+                alert("Ba mẹ vui lòng lựa chọn 1 đáp án giống nhất với bé ạ!");
+                return;
+            }
+
+            // Calculate total score
+            const score1 = parseInt(document.querySelector('input[name="q1"]:checked').value);
+            const score2 = parseInt(document.querySelector('input[name="q2"]:checked').value);
+            const score3 = parseInt(document.querySelector('input[name="q3"]:checked').value);
+            const score4 = parseInt(document.querySelector('input[name="q4"]:checked').value);
+            
+            score = score1 + score2 + score3 + score4;
+
+            // Hide step 4 and Progress Bar
+            document.getElementById('step-4').classList.add('hidden');
+            document.getElementById('progress-container').classList.add('hidden');
+
+            // Evaluate result
+            let riskLevel = "Thấp";
+            let resultBadgeClass = "";
+            let resultText = "";
+
+            if (score <= 6) {
+                riskLevel = "THẤP (An Toàn)";
+                resultBadgeClass = "bg-emerald-50 text-emerald-600 border border-emerald-200";
+                resultText = `Hiện tại, sức khỏe thị lực và dáng ngồi học đường của ${childName} đang ở mức **An Toàn**. Con duy trì thói quen sử dụng thiết bị điện tử rất điều độ và dáng ngồi thẳng thắn. Để củng cố thói quen tuyệt vời này, ba mẹ vẫn nên đưa bé qua Vinh Hằng đo kiểm tra định kỳ miễn phí và nhận bộ Cẩm nang + Sổ tay để con tự theo dõi nhé ạ!`;
+            } else if (score <= 12) {
+                riskLevel = "TRUNG BÌNH (Cần Chú Ý)";
+                resultBadgeClass = "bg-amber-50 text-amber-600 border border-amber-200";
+                resultText = `Bé ${childName} đang ở mức độ **Nguy cơ Trung Bình**. Con đã xuất hiện một số dấu hiệu mỏi cơ mi điều tiết nhẹ và tư thế ngồi thi thoảng khòm lưng. Mùa khai trường rất dễ khiến độ cận tăng nhanh nếu không có sự can thiệp kịp thời. Ba mẹ nên nhanh chóng dắt bé qua Vinh Hằng để đo khám tầm soát sớm 0đ trước khi con bước vào học tập căng thẳng nhé!`;
+            } else {
+                riskLevel = "CAO (BÁO ĐỘNG ĐỎ)";
+                resultBadgeClass = "bg-rose-50 text-rose-600 border border-rose-200";
+                resultText = `Báo động! Bé ${childName} có chỉ số **Nguy Cơ Cận Thị & Vẹo Cột Sống Học Đường Rất Cao**. Con sử dụng thiết bị điện tử nhiều, có tư thế ngồi nằm bò hoặc lệch vai và xuất hiện các dấu hiệu mỏi mệt lâm sàng rõ rệt. Ba mẹ cần phải đưa con đi tầm soát ngay lập tức! Kính mắt Thanh Hoa - Vinh Hằng đã xếp lịch hẹn VIP ưu tiên miễn phí cho con, ba mẹ bấm nút Zalo dưới đây để giữ chỗ nhé!`;
+            }
+
+            // Update Result UI
+            document.getElementById('result-badge').innerText = `Mức Độ Nguy Cơ: ${riskLevel}`;
+            document.getElementById('result-badge').className = `inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase mb-3 ${resultBadgeClass}`;
+            document.getElementById('result-name').innerText = `Bé: ${childName}`;
+            document.getElementById('result-text').innerHTML = resultText;
+
+            // Generate Custom Zalo URL (Redirect with dynamic text for 1-1 chat automation)
+            const baseText = `Xin chào Kính mắt Vinh Hằng, tôi là ba/mẹ ${parentName}. Tôi vừa thực hiện bài khảo sát chẩn đoán 2 phút cho bé ${childName}. Điểm số nguy cơ của bé đạt mức: ${riskLevel} (${score} điểm). Tôi muốn nhận kết quả chi tiết, cẩm nang PDF và đăng ký lịch khám VIP 0đ cho bé tại cửa hàng.`;
+            const encodedText = encodeURIComponent(baseText);
+            const zaloPhone = "0913572111"; // Số hotline Zalo nhận data
+            const zaloUrl = `https://zalo.me/${zaloPhone}?text=${encodedText}`;
+            
+            document.getElementById('zalo-link').href = zaloUrl;
+
+            // Show Result Screen
+            document.getElementById('result-screen').classList.remove('hidden');
+        }
+
+        // Reset Quiz
+        function resetQuiz() {
+            // Uncheck all radio buttons
+            const radios = document.querySelectorAll('input[type="radio"]');
+            radios.forEach(radio => radio.checked = false);
+
+            // Hide Result Screen
+            document.getElementById('result-screen').classList.add('hidden');
+
+            // Show Welcome Screen
+            document.getElementById('welcome-banner').classList.remove('hidden');
+            document.getElementById('step-0').classList.remove('hidden');
+            
+            // Clear inputs
+            document.getElementById('parent-name').value = "";
+            document.getElementById('child-name').value = "";
+            
+            currentStep = 0;
+            score = 0;
+        }
+    </script>
+</body>
+</html>
