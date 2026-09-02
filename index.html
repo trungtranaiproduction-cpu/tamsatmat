@@ -1,9 +1,18 @@
+HTML
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tầm Soát Sức Khỏe Học Đường - Mắt Sáng Dáng Thẳng</title>
+    
+    <!-- Bổ sung Meta Tags để chia sẻ link đẹp -->
+    <meta property="og:title" content="Tầm Soát Cận Thị & Vẹo Cột Sống Cho Trẻ - Kính mắt Thanh Hoa">
+    <meta property="og:description" content="Khảo sát 2 phút: Nhận ngay mã khám VIP 0đ và Cẩm nang bảo vệ mắt cho bé trước thềm năm học mới.">
+    <!-- Nhớ đổi link ảnh dưới đây thành ảnh mặt tiền cửa hàng hoặc banner nhà mày -->
+    <meta property="og:image" content="https://images.unsplash.com/photo-1589828135894-063be3d46387?q=80&w=800&auto=format&fit=crop"> 
+    <meta property="og:type" content="website">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -66,7 +75,7 @@
                 </div>
             </div>
 
-            <!-- Quiz Step Progress Bar (Hidden on Welcome/Result Screen) -->
+            <!-- Quiz Step Progress Bar -->
             <div id="progress-container" class="hidden px-6 pt-6">
                 <div class="flex justify-between text-xs text-slate-400 mb-2 font-semibold">
                     <span id="step-label">Câu hỏi 1/4</span>
@@ -103,11 +112,15 @@
                     </div>
                 </div>
 
-                <!-- Input Parent and Child Name -->
+                <!-- Input Parent, Phone and Child Name -->
                 <div class="mt-6 space-y-3">
                     <div>
                         <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Họ tên Ba Mẹ <span class="text-red-500">*</span></label>
                         <input type="text" id="parent-name" placeholder="Ví dụ: Nguyễn Văn An" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-clinical-500 focus:border-clinical-500 outline-none text-sm transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Số Điện Thoại (Zalo) <span class="text-red-500">*</span></label>
+                        <input type="tel" id="parent-phone" placeholder="Ví dụ: 0913572111" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-clinical-500 focus:border-clinical-500 outline-none text-sm transition-all" required>
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Tên & Tuổi của Bé <span class="text-red-500">*</span></label>
@@ -123,6 +136,7 @@
                 </button>
             </div>
 
+            <!-- STEP 1 TO 4 REMAIN EXACTLY THE SAME -->
             <!-- STEP 1: DEVICE USAGE -->
             <div id="step-1" class="hidden p-6 step-transition">
                 <h3 class="text-base font-bold text-slate-900 mb-4 leading-snug">Câu 1: Trung bình mỗi ngày con sử dụng thiết bị điện tử (tivi, điện thoại, ipad, máy tính) trong bao lâu?</h3>
@@ -217,7 +231,6 @@
             <!-- RESULT SCREEN -->
             <div id="result-screen" class="hidden p-6 step-transition">
                 
-                <!-- Risk Level Visual indicator -->
                 <div class="text-center pb-6 border-b border-slate-100">
                     <div id="result-badge" class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase mb-3">
                         Mức Độ Nguy Cơ: Cao
@@ -226,18 +239,16 @@
                     <h3 id="result-name" class="text-lg font-extrabold text-slate-900 mt-0.5">Bé Tôm</h3>
                 </div>
 
-                <!-- Diagnosis Detail -->
                 <div class="py-5 space-y-4">
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
                         <h4 class="font-bold text-sm text-slate-900 flex items-center">
                             <span class="mr-2">📢</span> Phân Tích Chuyên Khoa:
                         </h4>
                         <p id="result-text" class="text-xs text-slate-600 mt-2 leading-relaxed">
-                            Mức độ mỏi điều tiết và lệch tư thế ngồi của bé đang ở mức đáng báo động. Nếu không sớm đưa qua đo khám khúc xạ chuyên sâu, bé có nguy cơ cao bị tăng từ 1 - 2 độ cận thị ngay trong học kỳ mới, kèm theo cong vẹo hệ cột sống học đường.
+                            <!-- Nội dung sẽ tự động điền bằng JS -->
                         </p>
                     </div>
 
-                    <!-- Instant Gift Box -->
                     <div class="border-2 border-dashed border-clinical-500 bg-clinical-50/50 p-4 rounded-xl">
                         <h4 class="font-bold text-sm text-clinical-700 flex items-center">
                             <span class="mr-2">🎁</span> Quà Tặng Đã Giữ Thành Công:
@@ -250,8 +261,9 @@
                     </div>
                 </div>
 
-                <!-- Call To Action (Zalo Me Integration) -->
+                <!-- Call To Action (Zalo) + Chữ Đỏ cảnh báo -->
                 <div class="space-y-3">
+                    <p class="text-[11px] text-red-500 font-bold text-center animate-pulse">Lưu ý: Hệ thống chỉ tự động giữ chỗ Mã khám VIP 0đ và Quà tặng trong 15 phút. Ba mẹ vui lòng nhấn Zalo ngay để xác nhận!</p>
                     <a id="zalo-link" href="#" target="_blank" class="w-full bg-clinical-600 hover:bg-clinical-700 text-white font-bold py-4 px-4 rounded-xl shadow-lg shadow-clinical-600/20 transition-all text-sm flex items-center justify-center space-x-2">
                         <span class="text-base">💬</span>
                         <span>Nhắn Zalo Nhận Quà & Kết Quả Chi Tiết</span>
@@ -269,59 +281,64 @@
         Bản quyền thuộc về Solopreneur Enterprise.
     </footer>
 
-    <!-- Frontend Quiz Logic JavaScript -->
+    <!-- Frontend Quiz Logic JavaScript (UPDATE MỚI NHẤT) -->
     <script>
         let parentName = "";
+        let parentPhone = "";
         let childName = "";
         let currentStep = 0;
         let score = 0;
 
-        // Start Quiz
         function startQuiz() {
             const parentInput = document.getElementById('parent-name').value.trim();
+            const phoneInput = document.getElementById('parent-phone').value.trim();
             const childInput = document.getElementById('child-name').value.trim();
 
-            if (!parentInput || !childInput) {
-                alert("Ba mẹ vui lòng điền đầy đủ Họ tên và Tên bé nhé ạ!");
+            if (!parentInput || !phoneInput || !childInput) {
+                alert("Ba mẹ vui lòng điền đầy đủ Họ tên, Số điện thoại và Tên bé để hệ thống giữ quà tặng nhé ạ!");
+                return;
+            }
+
+            if (phoneInput.length < 9) {
+                alert("Số điện thoại không hợp lệ, ba mẹ kiểm tra lại nhé!");
                 return;
             }
 
             parentName = parentInput;
+            parentPhone = phoneInput;
             childName = childInput;
 
-            // Hide Step 0
+            // BẮN DATA VÀO GOOGLE SHEET (NHỚ ĐỔI LINK CỦA MÀY VÀO ĐÂY)
+            const webAppUrl = "https://script.google.com/macros/s/THAY_LINK_API_CUA_MAY_VAO_DAY/exec";
+            
+            fetch(webAppUrl, {
+                method: 'POST',
+                body: JSON.stringify({
+                    parentName: parentName,
+                    phone: parentPhone,
+                    childName: childName
+                })
+            }).catch(error => console.error('Lỗi lưu data:', error));
+
             document.getElementById('step-0').classList.add('hidden');
             document.getElementById('welcome-banner').classList.add('hidden');
-            
-            // Show Progress Bar
             document.getElementById('progress-container').classList.remove('hidden');
-
-            // Show Step 1
             showStep(1);
         }
 
-        // Show specific step
         function showStep(stepNum) {
             currentStep = stepNum;
-            
-            // Hide all steps
             for (let i = 1; i <= 4; i++) {
                 document.getElementById(`step-${i}`).classList.add('hidden');
             }
-
-            // Show target step
             document.getElementById(`step-${stepNum}`).classList.remove('hidden');
-
-            // Update Progress Bar
             const percent = (stepNum / 4) * 100;
             document.getElementById('step-label').innerText = `Câu hỏi ${stepNum}/4`;
             document.getElementById('step-percent').innerText = `${percent}%`;
             document.getElementById('progress-bar').style.width = `${percent}%`;
         }
 
-        // Next Step handler
         function nextStep(nextNum) {
-            // Validate that option is selected
             const checkedOption = document.querySelector(`input[name="q${nextNum - 1}"]:checked`);
             if (!checkedOption) {
                 alert("Ba mẹ vui lòng lựa chọn 1 đáp án giống nhất với bé ạ!");
@@ -330,12 +347,10 @@
             showStep(nextNum);
         }
 
-        // Previous Step handler
         function prevStep(prevNum) {
             showStep(prevNum);
         }
 
-        // Submit Quiz & Calculate Score
         function submitQuiz() {
             const checkedOption = document.querySelector('input[name="q4"]:checked');
             if (!checkedOption) {
@@ -343,7 +358,6 @@
                 return;
             }
 
-            // Calculate total score
             const score1 = parseInt(document.querySelector('input[name="q1"]:checked').value);
             const score2 = parseInt(document.querySelector('input[name="q2"]:checked').value);
             const score3 = parseInt(document.querySelector('input[name="q3"]:checked').value);
@@ -351,11 +365,9 @@
             
             score = score1 + score2 + score3 + score4;
 
-            // Hide step 4 and Progress Bar
             document.getElementById('step-4').classList.add('hidden');
             document.getElementById('progress-container').classList.add('hidden');
 
-            // Evaluate result
             let riskLevel = "Thấp";
             let resultBadgeClass = "";
             let resultText = "";
@@ -374,39 +386,30 @@
                 resultText = `Báo động! Bé ${childName} có chỉ số **Nguy Cơ Cận Thị & Vẹo Cột Sống Học Đường Rất Cao**. Con sử dụng thiết bị điện tử nhiều, có tư thế ngồi nằm bò hoặc lệch vai và xuất hiện các dấu hiệu mỏi mệt lâm sàng rõ rệt. Ba mẹ cần phải đưa con đi tầm soát ngay lập tức! Kính mắt Thanh Hoa - Vinh Hằng đã xếp lịch hẹn VIP ưu tiên miễn phí cho con, ba mẹ bấm nút Zalo dưới đây để giữ chỗ nhé!`;
             }
 
-            // Update Result UI
             document.getElementById('result-badge').innerText = `Mức Độ Nguy Cơ: ${riskLevel}`;
             document.getElementById('result-badge').className = `inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase mb-3 ${resultBadgeClass}`;
             document.getElementById('result-name').innerText = `Bé: ${childName}`;
             document.getElementById('result-text').innerHTML = resultText;
 
-            // Generate Custom Zalo URL (Redirect with dynamic text for 1-1 chat automation)
-            const baseText = `Xin chào Kính mắt Vinh Hằng, tôi là ba/mẹ ${parentName}. Tôi vừa thực hiện bài khảo sát chẩn đoán 2 phút cho bé ${childName}. Điểm số nguy cơ của bé đạt mức: ${riskLevel} (${score} điểm). Tôi muốn nhận kết quả chi tiết, cẩm nang PDF và đăng ký lịch khám VIP 0đ cho bé tại cửa hàng.`;
+            const baseText = `Xin chào Kính mắt Vinh Hằng, tôi là ba/mẹ ${parentName}. Tôi vừa thực hiện bài khảo sát 2 phút cho bé ${childName} SĐT (${parentPhone}). Điểm số nguy cơ của bé đạt mức: ${riskLevel} (${score} điểm). Tôi muốn nhận kết quả chi tiết, cẩm nang PDF và đăng ký lịch khám VIP 0đ cho bé tại cửa hàng.`;
             const encodedText = encodeURIComponent(baseText);
-            const zaloPhone = "0913572111"; // Số hotline Zalo nhận data
+            const zaloPhone = "0913572111"; // Nhớ sửa nếu dùng Zalo OA
             const zaloUrl = `https://zalo.me/${zaloPhone}?text=${encodedText}`;
             
             document.getElementById('zalo-link').href = zaloUrl;
-
-            // Show Result Screen
             document.getElementById('result-screen').classList.remove('hidden');
         }
 
-        // Reset Quiz
         function resetQuiz() {
-            // Uncheck all radio buttons
             const radios = document.querySelectorAll('input[type="radio"]');
             radios.forEach(radio => radio.checked = false);
 
-            // Hide Result Screen
             document.getElementById('result-screen').classList.add('hidden');
-
-            // Show Welcome Screen
             document.getElementById('welcome-banner').classList.remove('hidden');
             document.getElementById('step-0').classList.remove('hidden');
             
-            // Clear inputs
             document.getElementById('parent-name').value = "";
+            document.getElementById('parent-phone').value = "";
             document.getElementById('child-name').value = "";
             
             currentStep = 0;
